@@ -53,7 +53,7 @@ public class Pokemon {
         this.namae = namae;
     }
 
-    private String getType() {
+    public String getType() {
         return type;
     }
 
@@ -61,7 +61,7 @@ public class Pokemon {
         this.type = type;
     }
 
-    private int getHp() {
+    public int getHp() {
         return hp;
     }
 
@@ -69,7 +69,7 @@ public class Pokemon {
         this.hp = hp;
     }
 
-    private int getLvl() {
+    public int getLvl() {
         return lvl;
     }
 
@@ -77,14 +77,22 @@ public class Pokemon {
         this.lvl = lvl;
     }
 
-    private int getAttack() {
+    public int getAttack() {
         return attack;
     }
 
     private void setAttack(int attack) {
         this.attack = attack;
     }
-    
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
     private void calcAtcDfs() {
         switch (this.getType()) {
             case "Honoo":
@@ -111,10 +119,19 @@ public class Pokemon {
                 this.setAttack(120);
                 this.setDefense(60);
                 break;
+            case "Denki":
+                this.setAttack(70);
+                this.setDefense(70);
+                break;
             default:
                 this.setAttack(50);
                 this.setDefense(50);
         }
     }
-     
+    
+    public void lvlBonus(){
+        this.setHp(this.getHp() + (this.getLvl() / 5));
+        this.setAttack(this.getAttack() + (this.getLvl() / 5));
+        this.setDefense(this.getDefense() + ( this.getLvl() / 5));
+    }
 }
