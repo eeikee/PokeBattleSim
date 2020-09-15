@@ -17,7 +17,7 @@ public class PokeBattleSim extends Battle{
         Pokemon lucario = new Pokemon("lucario","","Kakutou");
         Pokemon pikachu = new Pokemon("pikachu","","Denki");
         System.out.println(startBattle(lucario,pikachu));
-        lucario.lvlBonus();
+        System.out.println(startBattle(lucario,pikachu));
         System.out.println(startBattle(lucario,pikachu));
     }
 }

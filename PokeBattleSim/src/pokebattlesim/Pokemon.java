@@ -17,6 +17,11 @@ public class Pokemon {
     private int lvl;
     private int attack;
     private int defense;
+    protected final int startHP;
+
+    public int getStartHP() {
+        return startHP;
+    }
 
     public Pokemon(String namae, String nickname, String type) {
         
@@ -27,9 +32,9 @@ public class Pokemon {
              this.nickname = nickname;
         }
         this.type = type;
-        this.hp = hp;
         this.lvl = 1;
         calcAtcDfsHp();
+        this.startHP = getHp();
     }
 
     @Override
@@ -73,7 +78,7 @@ public class Pokemon {
         return lvl;
     }
 
-    private void setLvl(int lvl) {
+    protected void setLvl(int lvl) {
         this.lvl = lvl;
     }
 
@@ -153,10 +158,12 @@ public class Pokemon {
                 this.setDefense(0);
         }
     }
-    
+    public void pokemonCenter(Pokemon pokemon){
+        pokemon.setHp(pokemon.getStartHP());
+    }
     public void lvlBonus(){
-        this.setHp(this.getHp() + (this.getLvl() / 5));
-        this.setAttack(this.getAttack() + (this.getLvl() / 5));
-        this.setDefense(this.getDefense() + ( this.getLvl() / 5));
+        this.setHp(this.getHp() + (this.getLvl() / 2));
+        this.setAttack(this.getAttack() + (this.getLvl() / 2));
+        this.setDefense(this.getDefense() + ( this.getLvl() / 2));
     }
 }

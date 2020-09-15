@@ -4,7 +4,7 @@ import pokebattlesim.Pokemon;
 public class Battle{
 
     public static String startBattle(Pokemon pokemon1, Pokemon pokemon2) {
-        System.out.println("Start Battle: \n" + pokemon1.getNickname() +  " VS " + pokemon2.getNickname());
+        System.out.println("Start Battle: \n" + pokemon1.getNickname() +  " VS " + pokemon2.getNickname()+"\n");
         AtcDfsBonus(pokemon1,pokemon2);
         AtcDfsBonus(pokemon2,pokemon1);
         pokemon1.lvlBonus();
@@ -13,8 +13,33 @@ public class Battle{
             if(pokemon1.getAttack()-pokemon2.getDefense() > 0){
                 pokemon2.setHp(pokemon2.getHp() - (pokemon1.getAttack() - pokemon2.getDefense()));
             }
-        }while(pokemon1.getHp() > 0 || pokemon2.getHp() > 0);
-        return (pokemon1.getHp() > pokemon2.getHp()) ? pokemon1.getNickname() + " Win" :  pokemon2.getNickname() + " Win";
+            if(pokemon2.getHp() <= 0){
+                System.out.println(pokemon1.getNickname()  + " HP: " + pokemon1.getHp() + " Attack!");
+                System.out.println(pokemon2.getNickname() + " HP: 0" + "\n");
+                pokemon1.setLvl(pokemon1.getLvl()+1);
+                System.out.println(pokemon1.getNickname() + "LVL UP! LVL: " + pokemon1.getLvl());
+            }
+            else{
+                System.out.println(pokemon1.getNickname()  + " HP: " + pokemon1.getHp() + " Attack!");
+                System.out.println(pokemon2.getNickname() + " HP: " + pokemon2.getHp()+"\n");
+                if(pokemon2.getAttack()-pokemon1.getDefense() > 0){
+                    pokemon1.setHp(pokemon1.getHp() - (pokemon2.getAttack() - pokemon1.getDefense()));
+                    if(pokemon1.getHp() <= 0){
+                        System.out.println(pokemon2.getNickname()  + " HP: " + pokemon2.getHp() + " Attack!");
+                        System.out.println(pokemon1.getNickname() + " HP: 0" +"\n");
+                        pokemon2.setLvl(pokemon2.getLvl()+1);
+                        System.out.println(pokemon2.getNickname() + " LVL UP! LVL: " + pokemon2.getLvl());
+                    }
+                    else{
+                        System.out.println(pokemon2.getNickname()  + " HP: " + pokemon2.getHp() + " Attack!");
+                        System.out.println(pokemon1.getNickname() + " HP: " + pokemon1.getHp()+"\n");
+                    }
+                }
+            }
+        }while(pokemon1.getHp() > 0 && pokemon2.getHp() > 0);
+        pokemon1.pokemonCenter(pokemon1);
+        pokemon2.pokemonCenter(pokemon2);
+        return (pokemon1.getHp() > pokemon2.getHp()) ? pokemon1.getNickname() + " Win" + "\n":  pokemon2.getNickname() + " Win"+ "\n";
     }
     public static void AtcDfsBonus(Pokemon pokemon1, Pokemon pokemon2){
         switch (pokemon1.getType()) {
