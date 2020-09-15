@@ -18,7 +18,7 @@ public class Pokemon {
     private int attack;
     private int defense;
 
-    public Pokemon(String namae, String nickname, String type, int hp, int lvl) {
+    public Pokemon(String namae, String nickname, String type) {
         
         this.namae = namae;
         if(nickname.equals("")){
@@ -28,8 +28,8 @@ public class Pokemon {
         }
         this.type = type;
         this.hp = hp;
-        this.lvl = lvl;
-        calcAtcDfs();
+        this.lvl = 1;
+        calcAtcDfsHp();
     }
 
     @Override
@@ -37,11 +37,11 @@ public class Pokemon {
         return "Pokemon: \n" + "namae: " + namae + "\nnickname: " + nickname + "\ntype: " + type + "\nhp: " + hp + "\nlvl: " + lvl + "\nattack: " + attack + "\ndefense: " + defense;
     }
     
-    private int getDefense() {
+    public int getDefense() {
         return defense;
     }
 
-    private void setDefense(int defense) {
+    protected void setDefense(int defense) {
         this.defense = defense;
     }
 
@@ -57,7 +57,7 @@ public class Pokemon {
         return type;
     }
 
-    private void setType(String type) {
+    public void setType(String type) {
         this.type = type;
     }
 
@@ -65,7 +65,7 @@ public class Pokemon {
         return hp;
     }
 
-    private void setHp(int hp) {
+    protected void setHp(int hp) {
         this.hp = hp;
     }
 
@@ -81,7 +81,7 @@ public class Pokemon {
         return attack;
     }
 
-    private void setAttack(int attack) {
+    protected void setAttack(int attack) {
         this.attack = attack;
     }
 
@@ -93,39 +93,64 @@ public class Pokemon {
         this.nickname = nickname;
     }
 
-    private void calcAtcDfs() {
+    protected void calcAtcDfsHp() {
         switch (this.getType()) {
             case "Honoo":
-                this.setAttack(70);
-                this.setDefense(30);
+                this.setHp(30);
+                this.setAttack(5);
+                this.setDefense(2);
                 break;
             case "Mizu":
-                this.setAttack(40);
-                this.setDefense(60);
+                this.setHp(36);
+                this.setAttack(4);
+                this.setDefense(3);
                 break;
             case "jimen":
-               this.setAttack(50);
-                this.setDefense(100);
+            case "Dark":
+                this.setHp(25);
+                this.setAttack(6);
+                this.setDefense(1);
                 break;
             case "hikou":
-                this.setAttack(100);
-                this.setDefense(20);
+                this.setHp(32);
+                this.setAttack(3);
+                this.setDefense(4);
                 break;
             case "Kusa":
-                this.setAttack(20);
-                this.setDefense(100);
+                this.setHp(30);
+                this.setAttack(2);
+                this.setDefense(5);
                 break;
             case "Kakutou":
-                this.setAttack(120);
-                this.setDefense(60);
+                this.setHp(22);
+                this.setAttack(7);
+                this.setDefense(0);
                 break;
             case "Denki":
-                this.setAttack(70);
-                this.setDefense(70);
+            case "Hagane":
+                this.setHp(34);
+                this.setAttack(4);
+                this.setDefense(4);
+                break;
+            case "Normal":
+                this.setHp(28);
+                this.setAttack(3);
+                this.setDefense(3);
+                break;
+            case "Ghost":
+                this.setHp(28);
+                this.setAttack(5);
+                this.setDefense(4);
+                break;
+            case "Koori":
+                this.setHp(32);
+                this.setAttack(3);
+                this.setDefense(5);
                 break;
             default:
-                this.setAttack(50);
-                this.setDefense(50);
+                this.setHp(20);
+                this.setAttack(3);
+                this.setDefense(0);
         }
     }
     

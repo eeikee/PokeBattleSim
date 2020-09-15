@@ -14,8 +14,8 @@ public class PokeBattleSim extends Battle{
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Pokemon lucario = new Pokemon("lucario","","Kakutou",150,75);
-        Pokemon pikachu = new Pokemon("pikachu","","Denki",150,75);
+        Pokemon lucario = new Pokemon("lucario","","Kakutou");
+        Pokemon pikachu = new Pokemon("pikachu","","Denki");
         System.out.println(startBattle(lucario,pikachu));
         lucario.lvlBonus();
         System.out.println(startBattle(lucario,pikachu));
