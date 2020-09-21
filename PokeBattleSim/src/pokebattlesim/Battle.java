@@ -1,5 +1,4 @@
 package pokebattlesim;
-import pokebattlesim.Pokemon;
 
 public class Battle{
 

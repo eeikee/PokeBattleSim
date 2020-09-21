@@ -4,11 +4,14 @@
  * and open the template in the editor.
  */
 package pokebattlesim;
+
+import static pokebattlesim.Battle.startBattle;
+
 /**
  *
  * @author eeikee
  */
-public class PokeBattleSim extends Battle{
+public class PokeBattleSim {
 
     /**
      * @param args the command line arguments
