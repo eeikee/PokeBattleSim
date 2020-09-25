@@ -1,6 +1,9 @@
 package pokebattlesim;
 
 public class Battle{
+    public Battle(Pokemon pokemon1, Pokemon pokemon2) {
+        System.out.println(startBattle(pokemon1,pokemon2));
+    }
 
     public static String startBattle(Pokemon pokemon1, Pokemon pokemon2) {
         System.out.println("Start Battle: \n" + pokemon1.getNickname() +  " VS " + pokemon2.getNickname()+"\n");

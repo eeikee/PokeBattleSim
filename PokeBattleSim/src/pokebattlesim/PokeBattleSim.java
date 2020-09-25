@@ -19,8 +19,9 @@ public class PokeBattleSim {
     public static void main(String[] args) {
         Pokemon lucario = new Pokemon("lucario","","Kakutou");
         Pokemon pikachu = new Pokemon("pikachu","","Denki");
-        System.out.println(startBattle(lucario,pikachu));
-        System.out.println(startBattle(lucario,pikachu));
-        System.out.println(startBattle(lucario,pikachu));
+
+        new Battle(lucario,pikachu);
+        new Battle(lucario,pikachu);
+        new Battle(lucario,pikachu);
     }
 }
